@@ -1,1 +1,1 @@
-# esp32c3-ambient-sensors
+# esp32s3-ambient-sensors
