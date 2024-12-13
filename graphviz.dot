@@ -1,0 +1,37 @@
+digraph G {
+
+  subgraph cluster_0 {
+    style=filled;
+    color=lightgrey;
+    node [style=filled,color=white];
+    
+    ESP [shape=Mdiamond];
+    ESP -> { Humidity Temperature Brightness }
+    
+    label = "Hardware";
+  }
+
+  ESP -> "MQTT Broker" [label=Wifi]
+
+  "MQTT Broker" [shape=Msquare]
+
+  "MQTT Broker" -> "Java MQTT client"
+
+  subgraph cluster_1 {
+    style=filled;
+    color=lightgrey;
+    node [style=filled,color=white];
+
+    "Java MQTT client" [shape=Mdiamond]
+    
+    "Java MQTT client" -> subgraph cluster_2 {
+        style=filled;
+        color=grey;
+        node [style=filled,color=white];
+        "Humidity (%)" "Temperature (<60°C)" "Brightness (%)"
+        label = "Graphs";
+      }
+      
+    label = "Software";
+  }
+}
