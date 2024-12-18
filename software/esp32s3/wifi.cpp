@@ -1,13 +1,15 @@
 #include "wifi.hpp"
 
 // Wi-Fi credentials
-const char* ssid = "INSEL";
-const char* password = "nootherperson";
+const char* ssid = "INSEL";              // Replace with your Wi-Fi SSID
+const char* password = "nootherperson";  // Replace with your Wi-Fi password
 const IPAddress laptopIP = IPAddress(172, 17, 250, 139);
 
 // MQTT broker credentials
-const char* mqttServer = "172.17.250.139";
-const int mqttPort = 1883;
+const char* mqttServer = "172.17.250.139";  // Replace with your MQTT broker address
+const int mqttPort = 1883;                  // Replace with your MQTT broker port, typically 1883
+const char* mqttUser = NULL;                // Optional, MQTT username
+const char* mqttPassword = NULL;            // Optional, MQTT password
 
 bool connectToWiFi() {
   Serial.print("Connecting to Wi-Fi...");
@@ -20,7 +22,7 @@ bool connectToWiFi() {
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
 
-  { // pinging laptop
+  {
     Serial.print(".");
 
     bool success = Ping.ping(laptopIP, 3);

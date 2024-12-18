@@ -1,8 +1,7 @@
-#ifndef utils_ino
-#define utils_ino
+#include "utils.hpp"
 
 char* toFloat(char* result, float f) {
-  dtostrf(f, 6, 2, result);
+  snprintf(result, 8, "%8.2f", f);
   return result;
 }
 
@@ -12,5 +11,3 @@ void halt() {
     delay(1000);
   }
 }
-
-#endif
