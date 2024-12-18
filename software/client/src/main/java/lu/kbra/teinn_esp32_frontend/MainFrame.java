@@ -45,7 +45,6 @@ public class MainFrame extends JFrame {
 
 		listener.registerListener("sensors/temperature", (m) -> {
 			updateDouble(m, temperatureSeries, temperatureGraph, averageTemperatureQueue::add);
-			System.out.println(averageTemperatureQueue);
 		});
 
 		listener.registerListener("sensors/humidity", (m) -> {
